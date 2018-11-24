@@ -34,14 +34,13 @@
             }
         });
         
-                
+        
         draggableArea.mouseup(function(){
             isOnMouse = false;
         });
         
     };
-    ////////////////////////////////////////////
-    ////////////////////////////////////////////
+    
     // private. 引数... 適用するエレメント
     removeDruggAndDropEvent = function(elementADADE){
         
