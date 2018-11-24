@@ -1,0 +1,1998 @@
+{
+    "notesCol": {
+        "0": {
+            "note-0": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 159,
+            "axisY": 193
+        },
+        "1": {
+            "note-0": {
+                "name": "A5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 171,
+            "axisY": 193
+        },
+        "2": {
+            "note-0": {
+                "name": "G#5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 198,
+            "axisY": 193
+        },
+        "3": {
+            "note-0": {
+                "name": "A5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 211,
+            "axisY": 193
+        },
+        "4": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 231,
+            "axisY": 193
+        },
+        "5": {
+            "note-0": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-1": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 249,
+            "axisY": 193
+        },
+        "6": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 272,
+            "axisY": 193
+        },
+        "7": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 289,
+            "axisY": 193
+        },
+        "8": {
+            "note-0": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 305,
+            "axisY": 193
+        },
+        "9": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 323,
+            "axisY": 193
+        },
+        "10": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 350,
+            "axisY": 193
+        },
+        "11": {
+            "note-0": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-1": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 368,
+            "axisY": 193
+        },
+        "12": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 391,
+            "axisY": 193
+        },
+        "13": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 405,
+            "axisY": 193
+        },
+        "14": {
+            "note-0": {
+                "name": "D#6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 429,
+            "axisY": 193
+        },
+        "15": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 444,
+            "axisY": 193
+        },
+        "16": {
+            "note-0": {
+                "name": "B6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 469,
+            "axisY": 193
+        },
+        "17": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 482,
+            "axisY": 193
+        },
+        "18": {
+            "note-0": {
+                "name": "G#6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 500,
+            "axisY": 193
+        },
+        "19": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 512,
+            "axisY": 193
+        },
+        "20": {
+            "note-0": {
+                "name": "B6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 522,
+            "axisY": 193
+        },
+        "21": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 537,
+            "axisY": 193
+        },
+        "22": {
+            "note-0": {
+                "name": "G#6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 555,
+            "axisY": 193
+        },
+        "23": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 568,
+            "axisY": 193
+        },
+        "24": {
+            "note-0": {
+                "name": "C7",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 595,
+            "axisY": 193
+        },
+        "25": {
+            "note-0": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-1": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 622,
+            "axisY": 193
+        },
+        "26": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 649,
+            "axisY": 193
+        },
+        "27": {
+            "note-0": {
+                "name": "C7",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 674,
+            "axisY": 193
+        },
+        "28": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 710,
+            "axisY": 193
+        },
+        "29": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 718,
+            "axisY": 193
+        },
+        "30": {
+            "note-0": {
+                "name": "B6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 728,
+            "axisY": 193
+        },
+        "31": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 750,
+            "axisY": 193
+        },
+        "32": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 778,
+            "axisY": 193
+        },
+        "33": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 804,
+            "axisY": 193
+        },
+        "34": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 834,
+            "axisY": 193
+        },
+        "35": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 842,
+            "axisY": 193
+        },
+        "36": {
+            "note-0": {
+                "name": "B6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 852,
+            "axisY": 193
+        },
+        "37": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 877,
+            "axisY": 193
+        },
+        "38": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 901,
+            "axisY": 193
+        },
+        "39": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 928,
+            "axisY": 193
+        },
+        "40": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 960,
+            "axisY": 193
+        },
+        "41": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 968,
+            "axisY": 193
+        },
+        "42": {
+            "note-0": {
+                "name": "B6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 979,
+            "axisY": 193
+        },
+        "43": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 1003,
+            "axisY": 193
+        },
+        "44": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "B3",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1030,
+            "axisY": 193
+        },
+        "45": {
+            "note-0": {
+                "name": "F#6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "B4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1059,
+            "axisY": 193
+        },
+        "46": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1103,
+            "axisY": 193
+        },
+        "47": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1153,
+            "axisY": 193
+        },
+        "48": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1187,
+            "axisY": 193
+        },
+        "49": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "C4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 137,
+            "axisY": 475
+        },
+        "50": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 155,
+            "axisY": 475
+        },
+        "51": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 179,
+            "axisY": 475
+        },
+        "52": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 193,
+            "axisY": 475
+        },
+        "53": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 213,
+            "axisY": 475
+        },
+        "54": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 229,
+            "axisY": 475
+        },
+        "55": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "G4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 262,
+            "axisY": 475
+        },
+        "56": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 310,
+            "axisY": 475
+        },
+        "57": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 339,
+            "axisY": 475
+        },
+        "58": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "C4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 378,
+            "axisY": 475
+        },
+        "59": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 401,
+            "axisY": 475
+        },
+        "60": {
+            "note-0": {
+                "name": "A6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 421,
+            "axisY": 475
+        },
+        "61": {
+            "note-0": {
+                "name": "G6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 440,
+            "axisY": 475
+        },
+        "62": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 454,
+            "axisY": 475
+        },
+        "63": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 471,
+            "axisY": 475
+        },
+        "64": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "G4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 507,
+            "axisY": 475
+        },
+        "65": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 551,
+            "axisY": 475
+        },
+        "66": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 584,
+            "axisY": 475
+        },
+        "67": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "A3",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 621,
+            "axisY": 475
+        },
+        "68": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 641,
+            "axisY": 475
+        },
+        "69": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 663,
+            "axisY": 475
+        },
+        "70": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 682,
+            "axisY": 475
+        },
+        "71": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 697,
+            "axisY": 475
+        },
+        "72": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 713,
+            "axisY": 475
+        },
+        "73": {
+            "note-0": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 748,
+            "axisY": 475
+        },
+        "74": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "A5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 801,
+            "axisY": 475
+        },
+        "75": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 833,
+            "axisY": 475
+        },
+        "76": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "A3",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 884,
+            "axisY": 475
+        },
+        "77": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-2": {
+                "name": "A4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "axisX": 922,
+            "axisY": 475
+        },
+        "78": {
+            "note-0": {
+                "name": "F6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 961,
+            "axisY": 475
+        },
+        "79": {
+            "note-0": {
+                "name": "E6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 991,
+            "axisY": 475
+        },
+        "80": {
+            "note-0": {
+                "name": "D6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "C5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1020,
+            "axisY": 475
+        },
+        "81": {
+            "note-0": {
+                "name": "C6",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1053,
+            "axisY": 475
+        },
+        "82": {
+            "note-0": {
+                "name": "B5",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "rightHand"
+            },
+            "note-1": {
+                "name": "E4",
+                "time": null,
+                "axisX": null,
+                "axisY": null,
+                "practiceMode": "leftHand"
+            },
+            "note-2": {
+                "name": null,
+                "time": null,
+                "axisX": null,
+                "axisY": null
+            },
+            "axisX": 1095,
+            "axisY": 475
+        }
+    },
+    "scoreRow": {
+        "upperAxisY": 193,
+        "lowerAxisY": 475
+    }
+}
