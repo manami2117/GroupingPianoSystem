@@ -1,12 +1,10 @@
 ﻿ChunkPianoSystem_client.domRenderer = function(globalMemCPSDDR){ 
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
     var domUtil = ChunkPianoSystem_client.utility(),
         createChunkDom, getChunkHeadLine, getSortedChunkHeadLine
     ;
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
     // todo: チャンクを複数に分けて描画した際の link を指定する引数 parentChunk を追加
     // このメソッドは chunk を 一度に1つしか描画できない．保存データから複数の chunk を描画する際は保存データを
     // for in 文で回し1つずつ描画する．
@@ -18,8 +16,8 @@
 
             var render, chunkDom, chunkDomId, chunkDomDelBtn; 
 //            console.log(globalMemCPSDDR.noteLinePosition);
-            ///////////////////////////////////////////////
-            ///////////////////////////////////////////////
+            
+            
             // noteLinePosition が正しく受信されている / されていない で chunk 描画処理の順番を変更する必要がある．
             // そのため，チャンク描画処理を render 関数としてまとめた．
             render = function(){
@@ -33,8 +31,8 @@
                     chunkPropCCD.top += chunkPropCCD.height;
                     chunkPropCCD.height = Math.abs(chunkPropCCD.height);
                 }
-                ///////////////////////////////////////////////
-                ///////////////////////////////////////////////
+                
+                
                 // chunk dom のテンプレート生成，描画位置情報を css に変換，イベント登録
                 chunkDomId = String() + chunkPropCCD.chunkType + 'Chunk_' + globalMemCPSDDR.patternChunkCount;
                 chunkDom = $('<div class="chunk pattern" id="' + chunkDomId + '"></div>');
@@ -45,13 +43,13 @@
                     'width' : chunkPropCCD.width  + 'px',
                     'height': chunkPropCCD.height + 'px'
                 });
-                ///////////////////////////////////////////////
-                ///////////////////////////////////////////////
+                
+                
                 chunkDom.mousedown(function(){
                     globalMemCPSDDR.isEditedByChunkMovingOrDelete = true; // chunkDom がクリック，または移動された際は編集された，と定義する
                 });
-                ///////////////////////////////////////////////
-                ///////////////////////////////////////////////
+                
+                
                 chunkDom.mouseup(function(){
                     // solved: ここにチャンクの頭出し位置を計算する処理，データ構造にその情報を加える処理を追加．
                     //         この処理は DOM 追加時，mouseup 時の両方で行う必要あり．
@@ -79,8 +77,8 @@
                 });
                 
                 domUtil.appendDruggAndDropEvent(chunkDom, globalMemCPSDDR.chunkDrawingArea);
-                ///////////////////////////////////////////////
-                ///////////////////////////////////////////////
+                
+                
                 // chunk 消去ボタンのテンプレート生成，css 計算，イベント付与
                 chunkDomDelBtn = $('<div class="chunkDeleteButton" id="' + chunkDomId +'_DeleteButton">' + 
                                         '<p class="chunkDeleteButtonFont">×</p>' + 
@@ -133,8 +131,8 @@
                     globalMemCPSDDR.patternChunkCount++; // todo: phraseChunk, hardChunk 描画時のカウンティング処理を追加
                 }
             };          
-            ///////////////////////////////////////////////
-            ///////////////////////////////////////////////
+            
+            
             // noteLinePosition が正しく受信されていない場合，チャンクの頭出し位置を計算できない．
             // その場合は main class の reqNoteLinePosition を呼び出し再受信する．
             if(globalMemCPSDDR.noteLinePosition == null || globalMemCPSDDR.noteLinePosition == undefined){
@@ -151,8 +149,8 @@
             console.log('createChunkDom; size 0');
         }
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     getChunkHeadLine = function(chunkPropGCL){     // チャンクの左辺の位置情報から最近傍の音符列を取得するメソッド.
         var getPositionByBruteForceSearch, 
             chunkMiddleAxisY = 0
@@ -178,8 +176,8 @@
             }
             return nearestNotePosition;
         };
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         chunkMiddleAxisY = chunkPropGCL.top + (Math.floor(chunkPropGCL.height / 2));
         // console.log('chunkMiddleAxisY: ' + chunkMiddleAxisY);
         // console.log(globalMemCPSDDR.noteLinePosition.middleAxisY);
@@ -207,8 +205,8 @@
             ;
         }
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     getSortedChunkHeadLine = function(chunkData){
         
         var sortedChunkHeadLine = []; 
@@ -223,7 +221,7 @@
         console.info(sortedChunkHeadLine);        
         return sortedChunkHeadLine;
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     return{createChunkDom:createChunkDom};
 };
