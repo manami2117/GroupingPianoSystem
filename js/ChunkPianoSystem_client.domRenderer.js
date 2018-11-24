@@ -13,7 +13,7 @@
             
         if (chunkPropCCD.width  === null || chunkPropCCD.width  === undefined) return;
         if (chunkPropCCD.height === null || chunkPropCCD.width  === undefined) return;
-        if (chunkPropCCD.width  <= 5 && chunkPropCCD.height <= 5 ) return;
+        if (chunkPropCCD.width  <= 5 || chunkPropCCD.height <= 5 ) return;
         
         // noteLinePosition が正しく受信されている / されていない で chunk 描画処理の順番を変更する必要がある．
         // そのため，チャンク描画処理を render 関数としてまとめた．
