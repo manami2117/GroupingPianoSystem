@@ -13,6 +13,8 @@ var ChunkPianoSystem_server = function(){
         io
     ;
 
+    const localPort = 3003;
+    
     initHttpAndSocketIo = function(){
         var httpServer, onHttpRequest;
 
@@ -55,7 +57,8 @@ var ChunkPianoSystem_server = function(){
                     break;
             }
         };
-        httpServer = http.createServer(onHttpRequest).listen(process.env.PORT || 3003);
+        httpServer = http.createServer(onHttpRequest).listen(process.env.PORT || localPort);
+        console.log('Server running on http://127.0.0.1:' + String(localPort));
 
         // socket.io を httpServer と関連づける (初期化)．
         io = socketIo.listen(httpServer);
