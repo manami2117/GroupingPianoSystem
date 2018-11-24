@@ -1,7 +1,7 @@
 ﻿var ChunkPianoSystem_client = function(){
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     var constructor, createChunkDom, initSocketIo,
         resetChunkDrawingAreaAndChunkData, turnNotEditedMode,
         // 複数のクラスで利用するメンバはこの globalMem オブジェクトに定義し，インスタンス生成時に引数として渡す.
@@ -36,8 +36,8 @@
         initDomAction =  ChunkPianoSystem_client.initDomAction(globalMem).initDomAction;
     
     globalMem.createChunkDom = createChunkDom;
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     // このメソッドは chunkDataObj の chunkData のみを初期化する
     // チャンクのカウントもリセットするので注意...
     resetChunkDrawingAreaAndChunkData = function(){
@@ -47,22 +47,22 @@
         globalMem.hardChunkCount = 0;
         globalMem.chunkDrawingArea.empty();
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     // turnNotEditedMode はクラスにして編集状態の変更をメソッドで実行するようにする
     globalMem.turnNotEditedMode = function(){                        
         globalMem.isEditedByChunkMovingOrDelete = false;
         globalMem.isEditedByNewChunk = false;
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     initSocketIo = function(callback){
         
         var reqNoteLinePositionCallback = null;
         // globalMem.socketIo = io.connect('http://127.0.0.1:3001');
         globalMem.socketIo = io.connect();
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         // noteLinePosition が正しく受信されていない場合に domRenderer クラスは 再受信のために reqNoteLinePosition を呼び出す．
         // そのため, reqNoteLinePosition を globalMem に追加した．
         // このメソッドは必ず即時実行すること (忘れてもバックアップがあるけども)．
@@ -74,8 +74,8 @@
             //  noteLinePosition の socket on 時にこれを実行．
             if(callback){reqNoteLinePositionCallback = callback;}
         })();
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         globalMem.socketIo.on('noteLinePosition', function(data){ 
             globalMem.noteLinePosition = data.noteLinePosition;
             if(reqNoteLinePositionCallback != null){
@@ -83,12 +83,12 @@
                 reqNoteLinePositionCallback = null; // これを行わなければ reqNoteLinePositionCallback が null でも実行されバグる．
             }
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         globalMem.socketIo.on('disconnect', function(client){            
 	    });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         globalMem.socketIo.on('chunkDataSaveRes', function(data){
             
             var isFromLoadChunkButtonProcessing,
@@ -116,8 +116,8 @@
                 showConfirmButton: false 
             });
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         globalMem.socketIo.on('chunkFileNameList', function(data){
 
             // console.log(data.fileNameList);
@@ -151,8 +151,8 @@
                 }, 1000); // chunkDataSelectMenu DOM の描画を待つ必要があるため，1.5 秒待つ．
             }); 
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         globalMem.socketIo.on('reqestedChunkData', function(data){ // ロードリクエストをした chunkData がレスポンスされた時
             
             // data.reqestedChunkData にユーザが指定した ChunkData が格納されている．
@@ -171,27 +171,24 @@
                         
             swal(data.message, '', data.status);
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         $(window).unload(function(){
         });     
         
         if(callback){callback();}
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     constructor = function(){
         // 逆の方が安全かもしれぬ... 
         initSocketIo(initDomAction);
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     return {constructor:constructor}; // public method
 };
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
+
 $(function main(){
     var cpsc = ChunkPianoSystem_client();
     cpsc.constructor();
