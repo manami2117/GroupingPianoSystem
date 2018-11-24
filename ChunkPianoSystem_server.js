@@ -1,12 +1,10 @@
 var ChunkPianoSystem_server = function(){
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     var constructor,
-        getStrTimeOrYear = require('./myNodeModules/GetStrTimeOrYear'), // node_modules を指定せずに require する方法はないのか? 
+        getStrTimeOrYear = require('./myNodeModules/GetStrTimeOrYear'), 
         getChunkDataJsonList,
         initHttpAndSocketIo,
-        splitedIoi = [],
         sdp = require('./myNodeModules/ScoreDataParser.js')('TurcoScore.json'),
         noteLinePosition = sdp.getNoteLinePosition(),
         fs = require('fs'),
@@ -14,25 +12,19 @@ var ChunkPianoSystem_server = function(){
         socketIo = require('socket.io'), 
         io
     ;
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     initHttpAndSocketIo = function(){
         var httpServer, onHttpRequest;
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
+
         onHttpRequest = function(req, res){           
             var data = null, 
                 extension
             ;
-            // console.log(req.url);
-            // res.writeHead(200, {'Content-type':'text/plain'});
-            // res.end('hello http server!\n');
             
             // req.url から拡張子を抽出
             extension = String() + req.url;
             extension = extension.split('.');
             extension = extension[extension.length-1];
-            // console.log(extension);
             
             // 多数の同時リロードに耐えるよう，非同期にファイル読込のテストを行ったが同期読込でないとダメらしい．
             // ファイルロードは sync で行わないと，先に res.end(data); が実行されてしまう!
@@ -63,21 +55,11 @@ var ChunkPianoSystem_server = function(){
                     break;
             }
         };
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
-        httpServer = http.createServer(onHttpRequest).listen(process.env.PORT || 3003); // for heroku deployment
-//        httpServer = http.createServer(onHttpRequest).listen(3000); // for heroku deployment
+        httpServer = http.createServer(onHttpRequest).listen(process.env.PORT || 3003);
 
-        // httpServer = http.createServer(onHttpRequest).listen(3003, '127.0.0.1');
-        
         // socket.io を httpServer と関連づける (初期化)．
         io = socketIo.listen(httpServer);
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
+
         io.sockets.on('connection', function(socket){
 
             socket.on('reqNoteLinePosition', function(data){
@@ -153,12 +135,6 @@ var ChunkPianoSystem_server = function(){
             // io.sockets.emit  　→ 自分を含む全員にデータを送信する.
             // socket.broadcast.emit　→ 自分以外の全員にデータを送信する.
             // socket.emit　      → 自分のみにデータを送信する. socket.emit であることに注意!
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
         });
     };
     
@@ -195,32 +171,19 @@ var ChunkPianoSystem_server = function(){
             }
         });
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     constructor = function(){
         initHttpAndSocketIo();
     };
-    ///////////////////////////////////////////////
-    /////////////////////////////////////////////// 
+
     return {constructor:constructor};
 };
-///////////////////////////////////////////////
-/////////////////////////////////////////////// 
-///////////////////////////////////////////////
-/////////////////////////////////////////////// 
-///////////////////////////////////////////////
+
 (function main(){
     'use strict'
-    ///////////////////////////////////////////////
-    /////////////////////////////////////////////// 
+
     var cpss = ChunkPianoSystem_server();
     cpss.constructor();
-    /////////////////////////////////////////////// 
-    ///////////////////////////////////////////////
-    // This is for ScoreDataParser.js debug. 
-    // var sdp = require('./myNodeModules/ScoreDataParser.js')('TurcoScore.json'),
-        // noteLinePosition = sdp.getNoteLinePosition()
-    // ;
-    // console.log(noteLinePosition.scoreCol);
+
 })();
 

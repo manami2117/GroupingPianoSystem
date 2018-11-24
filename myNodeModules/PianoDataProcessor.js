@@ -1,12 +1,11 @@
 ﻿module.exports = function(mode){
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     var readIoiFile, getIoiMaxMin,
         fs = require('fs')
     ;
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     // todo: ioi などの打鍵データを処理するモジュールを分離．
     readIoiFile = function(fileName){        
         var ioi;
@@ -17,8 +16,8 @@
            splitedIoi[i] = parseInt(splitedIoi[i], 10);
         }
     };
-    ///////////////////////////////////////////////
-    /////////////////////////////////////////////// 
+    
+     
     getIoiMaxMin = function(callback){
         try{
             var ioiMax = 0,
@@ -50,7 +49,6 @@
             console.log(e);
         }
     };
-    ///////////////////////////////////////////////
-    /////////////////////////////////////////////// 
+    
     return {readIoiFile:readIoiFile, getIoiMaxMin:getIoiMaxMin};
 };
