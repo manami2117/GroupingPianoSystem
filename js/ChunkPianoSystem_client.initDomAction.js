@@ -1,24 +1,18 @@
-﻿ChunkPianoSystem_client.initDomAction = function(globalMemCPSCIDA){    
+﻿ChunkPianoSystem_client.initDomAction = function(globalMemCPSCIDA, domRenderer){    
     'use strict'
-    
-    
-    var initDomAction, setPlayPosition, 
+        
+    var init, setPlayPosition, 
         playPosition = $('#playPosition')
     ;
     
-    initDomAction = function(callback){
+    init = function(){
         
-        var upperFrame = $('#upperFrame'),        
-            saveChunkButton = $('#saveChunkButton'),
-            loadChunkButton = $('#loadChunkButton'),
-            displayTexitButton = $('#displayTexitButton'),
-            alertText = $('.textInput#alertText'),
-            textArea = $('#textArea'),
+        var saveChunkButton = $('#saveChunkButton'),
+            loadChunkButton = $('#loadChunkButton'),            
             practicePointModeSelector = $('#practicePointModeSelector'),
             groupModeSelector = $('#groupModeSelector'),
             leftPositionButton = $('#leftPositionButton'),
             rightPositionButton = $('#rightPositionButton'),
-            beforeColor = '',
             isChunkDrawing = false,
             chunkDrawingAreaMouseDowmPosX = 0,
             chunkDrawingAreaMouseDowmPosY = 0,
@@ -72,8 +66,7 @@
         };
         
         swal(swalPromptOptionForUserNameProp, userNameSetter);   
-        
-        
+                
         // 演奏位置初期化処理
         // noteLinePosition を受け取ってから処理をしなければならないため，
         // callback を利用し サーバから noteLinePosition を受け取ってから下記の処理を行う．
@@ -85,7 +78,6 @@
                            )
             ;    
         });        
-        
         
         saveConfirmModalWindow = function(callback){
             swal({
@@ -113,7 +105,6 @@
             });
         };
         
-        
         // Chunk 描画処理．mousedown 時に描画開始位置を取得し，mouseup 時に描画終了位置を取得する．
         globalMemCPSCIDA.chunkDrawingArea.mousedown(function(e){
             chunkDrawingAreaMouseDowmPosX = parseInt(e.offsetX, 10);
@@ -121,7 +112,6 @@
             isChunkDrawing = true;
         });
         
-         
         globalMemCPSCIDA.chunkDrawingArea.mouseup(function(e){
 
             if(isChunkDrawing){
@@ -133,7 +123,7 @@
                 chunkSizeX = parseInt(e.offsetX, 10) - chunkDrawingAreaMouseDowmPosX;
                 chunkSizeY = parseInt(e.offsetY, 10) - chunkDrawingAreaMouseDowmPosY;
 
-                // todo: globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] (domrenderer), chunkPropaties (initDomAction) など，
+                // todo: globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] (domrenderer), chunkPropaties (init) など，
                 //       同じ情報もしくはその拡張を複数箇所で定義しており，バグを生みやすい状況にある．
                 //       object の ファクトリ関数を定義し，最初から全てのプロパティを定義し，サブクラスでプロパティを拡張しないようにする．
                 //       現状ではオブジェクトプロパティを確認するにはプログラムを実行する必要があり，メンテナンス性が低い!!!
@@ -146,7 +136,7 @@
                     parentChunk: null
                 };
 
-                globalMemCPSCIDA.createChunkDom(chunkProperties);
+                domRenderer.createChunkDom(chunkProperties);
 
                 globalMemCPSCIDA.isEditedByNewChunk = true;
                 isChunkDrawing = false;
@@ -206,8 +196,7 @@
                            )
             ;  
         };        
-        
-        
+                
         practicePointModeSelector.change(function(){
             
             globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
@@ -274,8 +263,7 @@
                 ; 
             }
         });
-        
-        
+                
         rightPositionButton.click(function(){
             
             var isRejectChunkPractice = false;
@@ -312,8 +300,7 @@
                                )
                 ;  
             }
-        });        
-        
+        });
         
         loadChunkButton.click(function(){
             // todo: data で userName をサーバに渡し，その userName のファイルだけを req するようにする．
@@ -331,9 +318,7 @@
                 globalMemCPSCIDA.socketIo.emit('chunkFileNameReq',{});
             }
         });
-        
-        
-        if(callback) callback();
+                
     };
     
     setPlayPosition = function(left, top){
@@ -346,6 +331,9 @@
             'left': (left - (playPositionWidth  / 2))
         });
     };
-    
-    return {initDomAction:initDomAction, setPlayPosition:setPlayPosition};
+
+    (function constructor () {
+        init();
+    })();
+
 };

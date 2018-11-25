@@ -1,18 +1,16 @@
 ﻿ChunkPianoSystem_client.utility = function(){
+
     'use strict'
-    
     
     var appendDruggAndDropEvent, removeDruggAndDropEvent, getElementPosition;
     
-     
     appendDruggAndDropEvent = function(elementADADE, parentElement){
 
         var draggableArea = parentElement,
             elementMouseOffsetX, elementMouseOffsetY,
             isOnMouse = false
         ;
-        
-          
+                  
         elementADADE.mousedown(function(){
             
             var elementPosition;
@@ -24,8 +22,7 @@
             elementMouseOffsetX = event.pageX - elementPosition.offsetLeft;
             elementMouseOffsetY = event.pageY - elementPosition.offsetTop;            
         })
-        
-                
+                        
         draggableArea.mousemove(function(){
             if(isOnMouse){
                 elementADADE.css({'left':event.pageX - elementMouseOffsetX,
@@ -34,14 +31,12 @@
             }
         });
         
-        
         draggableArea.mouseup(function(){
             isOnMouse = false;
         });
         
     };
-    
-    // private. 引数... 適用するエレメント
+
     removeDruggAndDropEvent = function(elementADADE){
         
         try{            
@@ -55,7 +50,6 @@
         
     };
     
-     
     getElementPosition = function(elementGEO){
         
         var offset = elementGEO.offset(),
@@ -80,7 +74,6 @@
         return elementProp;
     };
     
-     
     return {appendDruggAndDropEvent:appendDruggAndDropEvent, 
             removeDruggAndDropEvent:appendDruggAndDropEvent,
             getElementPosition:getElementPosition
