@@ -1,11 +1,11 @@
-﻿ChunkPianoSystem_client.initDomAction = function(globalMemCPSCIDA){    
+﻿ChunkPianoSystem_client.initDomAction = function(globalMemCPSCIDA, domRenderer){    
     'use strict'
         
-    var initDomAction, setPlayPosition, 
+    var init, setPlayPosition, 
         playPosition = $('#playPosition')
     ;
     
-    initDomAction = function(callback){
+    init = function(){
         
         var saveChunkButton = $('#saveChunkButton'),
             loadChunkButton = $('#loadChunkButton'),            
@@ -123,7 +123,7 @@
                 chunkSizeX = parseInt(e.offsetX, 10) - chunkDrawingAreaMouseDowmPosX;
                 chunkSizeY = parseInt(e.offsetY, 10) - chunkDrawingAreaMouseDowmPosY;
 
-                // todo: globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] (domrenderer), chunkPropaties (initDomAction) など，
+                // todo: globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] (domrenderer), chunkPropaties (init) など，
                 //       同じ情報もしくはその拡張を複数箇所で定義しており，バグを生みやすい状況にある．
                 //       object の ファクトリ関数を定義し，最初から全てのプロパティを定義し，サブクラスでプロパティを拡張しないようにする．
                 //       現状ではオブジェクトプロパティを確認するにはプログラムを実行する必要があり，メンテナンス性が低い!!!
@@ -136,7 +136,7 @@
                     parentChunk: null
                 };
 
-                globalMemCPSCIDA.createChunkDom(chunkProperties);
+                domRenderer.createChunkDom(chunkProperties);
 
                 globalMemCPSCIDA.isEditedByNewChunk = true;
                 isChunkDrawing = false;
@@ -319,7 +319,6 @@
             }
         });
                 
-        if(callback) callback();
     };
     
     setPlayPosition = function(left, top){
@@ -332,6 +331,9 @@
             'left': (left - (playPositionWidth  / 2))
         });
     };
-    
-    return {initDomAction:initDomAction, setPlayPosition:setPlayPosition};
+
+    (function constructor () {
+        init();
+    })();
+
 };

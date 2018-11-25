@@ -1,18 +1,14 @@
 ﻿var ChunkPianoSystem_client = function(){
-    'use strict'
+    'use strict'    
     
-    
-    var constructor, createChunkDom, initSocketIo,
+    var initSocketIo,
         resetChunkDrawingAreaAndChunkData, 
         // 複数のクラスで利用するメンバはこの globalMem オブジェクトに定義し，インスタンス生成時に引数として渡す.
-        globalMem = { // 複数のクラスで利用するメンバ/メソッドはここで定義すること
-        
-            setPlayPosition:ChunkPianoSystem_client.initDomAction(globalMem).setPlayPosition,
+        globalMem = { // 複数のクラスで利用するメンバ/メソッドはここで定義すること        
             chunkDrawingArea:$('#chunkDrawingArea'),
             socketIo:null,
             reqNoteLinePosition:null,
             turnNotEditedMode:null, // 後方参照ができないので，一旦 null を代入し，クラス内メンバの宣言が終わってからメンバを代入
-            createChunkDom:null,
             isFromLoadChunkButton:false,
             practicePointMode:null,
             groupMode:null,
@@ -27,12 +23,11 @@
                 practiceDay:null
             },
             groupCount:{}
-        }, 
-        createChunkDom =  ChunkPianoSystem_client.domRenderer(globalMem).createChunkDom,
-        initDomAction =  ChunkPianoSystem_client.initDomAction(globalMem).initDomAction;
+        }
+    ;
+
+    var domRenderer =  ChunkPianoSystem_client.domRenderer(globalMem);
     
-    globalMem.createChunkDom = createChunkDom;
-        
     // このメソッドは chunkDataObj の chunkData のみを初期化する
     // チャンクのカウントもリセットするので注意...
     resetChunkDrawingAreaAndChunkData = function(){
@@ -51,7 +46,7 @@
     };
     
     
-    initSocketIo = function(callback){
+    initSocketIo = function(){
         
         var reqNoteLinePositionCallback = null;
         globalMem.socketIo = io.connect();
@@ -152,7 +147,7 @@
             data.reqestedChunkData = JSON.parse(data.reqestedChunkData);
             
             for(var chunkId in data.reqestedChunkData.chunkData){
-                createChunkDom(data.reqestedChunkData.chunkData[chunkId]);
+                domRenderer.createChunkDom(data.reqestedChunkData.chunkData[chunkId]);
             }
             
             globalMem.turnNotEditedMode();
@@ -164,17 +159,15 @@
         $(window).unload(function(){
         });     
         
-        if(callback){callback();}
     };
         
-    constructor = function(){
-        initSocketIo(initDomAction);
-    };
-    
-    return {constructor:constructor}; 
+    (function constructor() {
+        initSocketIo();
+        ChunkPianoSystem_client.initDomAction(globalMem, domRenderer);
+    })();
+
 };
 
 $(function main(){
-    var cpsc = ChunkPianoSystem_client();
-    cpsc.constructor();
+    ChunkPianoSystem_client();
 });
