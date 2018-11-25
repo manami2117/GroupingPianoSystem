@@ -7,17 +7,12 @@
     
     initDomAction = function(callback){
         
-        var upperFrame = $('#upperFrame'),        
-            saveChunkButton = $('#saveChunkButton'),
-            loadChunkButton = $('#loadChunkButton'),
-            displayTexitButton = $('#displayTexitButton'),
-            alertText = $('.textInput#alertText'),
-            textArea = $('#textArea'),
+        var saveChunkButton = $('#saveChunkButton'),
+            loadChunkButton = $('#loadChunkButton'),            
             practicePointModeSelector = $('#practicePointModeSelector'),
             groupModeSelector = $('#groupModeSelector'),
             leftPositionButton = $('#leftPositionButton'),
             rightPositionButton = $('#rightPositionButton'),
-            beforeColor = '',
             isChunkDrawing = false,
             chunkDrawingAreaMouseDowmPosX = 0,
             chunkDrawingAreaMouseDowmPosY = 0,
