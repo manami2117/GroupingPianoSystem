@@ -4,6 +4,7 @@
     var domUtil = ChunkPianoSystem_client.utility(),
         createChunkDom, getChunkHeadLine, getSortedChunkHeadLine
     ;
+
     // todo: チャンクを複数に分けて描画した際の link を指定する引数 parentChunk を追加
     // このメソッドは chunk を 一度に1つしか描画できない．保存データから複数の chunk を描画する際は保存データを
     // for in 文で回し1つずつ描画する．
@@ -52,13 +53,6 @@
             });
                         
             chunkDom.mouseup(function(event){
-                // solved: ここにチャンクの頭出し位置を計算する処理，データ構造にその情報を加える処理を追加．
-                //         この処理は DOM 追加時，mouseup 時の両方で行う必要あり．
-                //         mouseup で移動した後の css top, left を反映するのを忘れていた!
-                //         今は生成時の top, left が保持され続けている... 
-                
-                // this は mouseup された chunkDom 要素を指す，
-                // DOM アクセスには時間がかかるので，変数にキャッシュしてアクセス時間を減らす．
 
                 var mouseupedChunkDom = $(this),
                     mouseupedChunkDomData = globalMemCPSDDR.chunkDataObj.chunkData[mouseupedChunkDom[0].id]
@@ -75,9 +69,7 @@
             });
             
             domUtil.appendDruggAndDropEvent(chunkDom, globalMemCPSDDR.chunkDrawingArea);
-            
-            
-            // chunk 消去ボタンのテンプレート生成，css 計算，イベント付与
+                        
             chunkDomDelBtn = $('<div class="chunkDeleteButton" id="' + chunkDomId +'_DeleteButton">' + 
                                     '<p class="chunkDeleteButtonFont">×</p>' + 
                                 '</div>'
@@ -90,7 +82,6 @@
                 ;
                 parentChunkDom.remove(); // クリックされた chunkDomDelBtn の親要素 == ユーザが消したい chunk dom
                 // html の chunkDom の削除と同時に オブジェクトのデータ構造内の該当する chunkDom も削除．
-                // !!!! ChunkDom 関連の実装を拡張する際は，オブジェクトのデータ構造とDOMの状態をバラバラにしないように細心の注意を !!!!
                 delete globalMemCPSDDR.chunkDataObj.chunkData[parentChunkDomId];
                 globalMemCPSDDR.isEditedByChunkMovingOrDelete = true;
                 
@@ -100,12 +91,6 @@
             });
 
             chunkDom.append(chunkDomDelBtn);
-        
-            // todo: globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] (domrenderer), chunkPropaties (initDomAction) など，
-            //       同じ情報もしくはその拡張を複数箇所で定義しており，バグを生みやすい状況にある．
-            //       object の ファクトリ関数を定義し，最初から全てのプロパティを定義し，サブクラスでプロパティを拡張しないようにする．
-            //       現状ではオブジェクトプロパティを確認するにはプログラムを実行する必要があり，メンテナンス性が低い!!!
-            // html への chunkDom の追加と同時に オブジェクトのデータ構造にも chunkDom を追加．
 
             chunkPropCCD['chunkHeadLine'] = getChunkHeadLine(chunkPropCCD);
             globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] = chunkPropCCD;
@@ -121,7 +106,6 @@
             globalMemCPSDDR.groupCount[chunkPropCCD.groupMode]++;
         };          
         
-        
         // noteLinePosition が正しく受信されていない場合，チャンクの頭出し位置を計算できない．
         // その場合は main class の reqNoteLinePosition を呼び出し再受信する．
         if(globalMemCPSDDR.noteLinePosition == null || globalMemCPSDDR.noteLinePosition == undefined){
@@ -134,8 +118,7 @@
         render(); // 上記if文より下で実行すること．実行順序を入れ替えると，noteLinePosition を再受信した際に render が2度実行される．
     };
     
-    
-    getChunkHeadLine = function(chunkPropGCL){     // チャンクの左辺の位置情報から最近傍の音符列を取得するメソッド.
+    getChunkHeadLine = function(chunkPropGCL){
         var getPositionByBruteForceSearch, 
             chunkMiddleAxisY = 0
         ;
@@ -161,7 +144,6 @@
         // チャンクが上段に描画された場合のチャンク頭出し位置の算出
         if(chunkMiddleAxisY <= globalMemCPSDDR.noteLinePosition.middleAxisY){
         
-            
             // todo: チャンクの y 座標を引数として与えると，譜面の何段目に当たっているかを判定するメソッドを追加．これじゃハードコーディングでダサい!
             //     : ScoreDataParser で判定メソッドをオブジェクトに詰めてここで実行する? 
             return getPositionByBruteForceSearch(globalMemCPSDDR.noteLinePosition.scoreCol['1'].start, // '1' は1段目の音符列を意味する．
@@ -181,7 +163,6 @@
         }
     };
     
-    
     getSortedChunkHeadLine = function(chunkData){
         
         var sortedChunkHeadLine = []; 
@@ -196,7 +177,6 @@
         console.info(sortedChunkHeadLine);        
         return sortedChunkHeadLine;
     };
-    
     
     return{createChunkDom:createChunkDom};
 };

@@ -1,7 +1,6 @@
 ﻿ChunkPianoSystem_client.initDomAction = function(globalMemCPSCIDA){    
     'use strict'
-    
-    
+        
     var initDomAction, setPlayPosition, 
         playPosition = $('#playPosition')
     ;
@@ -72,8 +71,7 @@
         };
         
         swal(swalPromptOptionForUserNameProp, userNameSetter);   
-        
-        
+                
         // 演奏位置初期化処理
         // noteLinePosition を受け取ってから処理をしなければならないため，
         // callback を利用し サーバから noteLinePosition を受け取ってから下記の処理を行う．
@@ -85,7 +83,6 @@
                            )
             ;    
         });        
-        
         
         saveConfirmModalWindow = function(callback){
             swal({
@@ -113,7 +110,6 @@
             });
         };
         
-        
         // Chunk 描画処理．mousedown 時に描画開始位置を取得し，mouseup 時に描画終了位置を取得する．
         globalMemCPSCIDA.chunkDrawingArea.mousedown(function(e){
             chunkDrawingAreaMouseDowmPosX = parseInt(e.offsetX, 10);
@@ -121,7 +117,6 @@
             isChunkDrawing = true;
         });
         
-         
         globalMemCPSCIDA.chunkDrawingArea.mouseup(function(e){
 
             if(isChunkDrawing){
@@ -206,8 +201,7 @@
                            )
             ;  
         };        
-        
-        
+                
         practicePointModeSelector.change(function(){
             
             globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
@@ -274,8 +268,7 @@
                 ; 
             }
         });
-        
-        
+                
         rightPositionButton.click(function(){
             
             var isRejectChunkPractice = false;
@@ -312,8 +305,7 @@
                                )
                 ;  
             }
-        });        
-        
+        });
         
         loadChunkButton.click(function(){
             // todo: data で userName をサーバに渡し，その userName のファイルだけを req するようにする．
@@ -331,8 +323,7 @@
                 globalMemCPSCIDA.socketIo.emit('chunkFileNameReq',{});
             }
         });
-        
-        
+                
         if(callback) callback();
     };
     

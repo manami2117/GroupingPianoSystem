@@ -3,10 +3,8 @@
     
     
     var constructor, createChunkDom, initSocketIo,
-        resetChunkDrawingAreaAndChunkData, turnNotEditedMode,
+        resetChunkDrawingAreaAndChunkData, 
         // 複数のクラスで利用するメンバはこの globalMem オブジェクトに定義し，インスタンス生成時に引数として渡す.
-        // しかしこれはベストプラクティスではないような...
-        // Java のように this でメンバを渡せるようにできないか?
         globalMem = { // 複数のクラスで利用するメンバ/メソッドはここで定義すること
         
             setPlayPosition:ChunkPianoSystem_client.initDomAction(globalMem).setPlayPosition,
@@ -30,13 +28,11 @@
             },
             groupCount:{}
         }, 
-        // !!! グローバルメンバを宣言してからサブクラスのインスタンス化を行う
         createChunkDom =  ChunkPianoSystem_client.domRenderer(globalMem).createChunkDom,
         initDomAction =  ChunkPianoSystem_client.initDomAction(globalMem).initDomAction;
     
     globalMem.createChunkDom = createChunkDom;
-    
-    
+        
     // このメソッドは chunkDataObj の chunkData のみを初期化する
     // チャンクのカウントもリセットするので注意...
     resetChunkDrawingAreaAndChunkData = function(){
@@ -58,9 +54,7 @@
     initSocketIo = function(callback){
         
         var reqNoteLinePositionCallback = null;
-        // globalMem.socketIo = io.connect('http://127.0.0.1:3001');
         globalMem.socketIo = io.connect();
-        
         
         // noteLinePosition が正しく受信されていない場合に domRenderer クラスは 再受信のために reqNoteLinePosition を呼び出す．
         // そのため, reqNoteLinePosition を globalMem に追加した．
@@ -153,15 +147,10 @@
         
         
         globalMem.socketIo.on('reqestedChunkData', function(data){ // ロードリクエストをした chunkData がレスポンスされた時
-            
-            // data.reqestedChunkData にユーザが指定した ChunkData が格納されている．
-            // これは stringfy (文字列化) されているので JSON.parse() で JavaScript のオブジェクトに変換する．
-            
+                        
             resetChunkDrawingAreaAndChunkData();
             data.reqestedChunkData = JSON.parse(data.reqestedChunkData);
             
-            // createChunkDom メソッドは chunk を 一度に1つしか描画できない．保存データから複数の chunk を描画する際は保存データを
-            // for in 文で回し1つずつ描画する．
             for(var chunkId in data.reqestedChunkData.chunkData){
                 createChunkDom(data.reqestedChunkData.chunkData[chunkId]);
             }
@@ -177,15 +166,12 @@
         
         if(callback){callback();}
     };
-    
-    
+        
     constructor = function(){
-        // 逆の方が安全かもしれぬ... 
         initSocketIo(initDomAction);
     };
     
-    
-    return {constructor:constructor}; // public method
+    return {constructor:constructor}; 
 };
 
 $(function main(){
