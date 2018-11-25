@@ -22,6 +22,7 @@
             isChunkDrawing = false,
             chunkDrawingAreaMouseDowmPosX = 0,
             chunkDrawingAreaMouseDowmPosY = 0,
+            chunkHeadLinePositionsNowIndex = 0,
             swalPromptOptionForUserNameProp,
             defaultUserName = null,
             userNameSetter,
@@ -240,6 +241,9 @@
             var isRejectChunkPractice = false;
             
             if(globalMemCPSCIDA.practicePointMode == 'notePosition'){
+
+                chunkHeadLinePositionsNowIndex = 0;
+
                 if(globalMemCPSCIDA.nowNoteRowCount == 0){
                     globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.noteLinePosition.noteLine.length - 1;
                 }else{
@@ -247,20 +251,20 @@
                 }          
             }else if(globalMemCPSCIDA.practicePointMode == 'chunk'){
                 
-                var chunkHeadLinePositionsNowIndex = globalMemCPSCIDA.chunkHeadLinePositions.indexOf(globalMemCPSCIDA.nowNoteRowCount);                
-                
-                if(chunkHeadLinePositionsNowIndex == 0){
-                    globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[globalMemCPSCIDA.chunkHeadLinePositions.length-1];
-                }else if(chunkHeadLinePositionsNowIndex == -1){
-                    if(globalMemCPSCIDA.chunkHeadLinePositions.length >0){
-                        globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[0];
-                    }else{
-                        rejectChunkPracticeMode();
-                        isRejectChunkPractice = true;
-                    }
+                var isChunkExists = globalMemCPSCIDA.chunkHeadLinePositions.length > 0;
+
+                if(!isChunkExists){
+                    rejectChunkPracticeMode();
+                    isRejectChunkPractice = true;
+                // チャンクの頭出し位置が既に先頭要素を指している場合に「←」が押下された場合は、頭出し位置を末尾要素にする。
+                }else if(chunkHeadLinePositionsNowIndex === 0){
+                    chunkHeadLinePositionsNowIndex = globalMemCPSCIDA.chunkHeadLinePositions.length - 1;
+                    globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[chunkHeadLinePositionsNowIndex];
                 }else{
-                    globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[chunkHeadLinePositionsNowIndex-1];
-                }
+                    chunkHeadLinePositionsNowIndex--;
+                    globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[chunkHeadLinePositionsNowIndex];
+                }                
+
             }
             
             if(!isRejectChunkPractice){
@@ -277,23 +281,28 @@
             var isRejectChunkPractice = false;
             
             if(globalMemCPSCIDA.practicePointMode == 'notePosition'){
-               
+            
+                chunkHeadLinePositionsNowIndex = 0;
+    
                 if(globalMemCPSCIDA.nowNoteRowCount == globalMemCPSCIDA.noteLinePosition.noteLine.length - 1){
                     globalMemCPSCIDA.nowNoteRowCount = 0;
                 }else{
                     globalMemCPSCIDA.nowNoteRowCount += 1;                
                 }
             }else if(globalMemCPSCIDA.practicePointMode == 'chunk'){
-            
-                var chunkHeadLinePositionsNowIndex = globalMemCPSCIDA.chunkHeadLinePositions.indexOf(globalMemCPSCIDA.nowNoteRowCount);
-                   
-                if(chunkHeadLinePositionsNowIndex == -1 && globalMemCPSCIDA.chunkHeadLinePositions.length == 0){
+           
+                var isChunkExists = globalMemCPSCIDA.chunkHeadLinePositions.length > 0;
+
+                if(!isChunkExists){
                     rejectChunkPracticeMode();
                     isRejectChunkPractice = true;
-                }else if(chunkHeadLinePositionsNowIndex == globalMemCPSCIDA.chunkHeadLinePositions.length-1){
+                // チャンクの頭出し位置が既に末尾要素を指している場合に「→」が押下された場合は、頭出し位置を先頭要素にする。
+                }else if(chunkHeadLinePositionsNowIndex === globalMemCPSCIDA.chunkHeadLinePositions.length - 1){
+                    chunkHeadLinePositionsNowIndex = 0;
                     globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[0];
                 }else{
-                    globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[chunkHeadLinePositionsNowIndex+1];
+                    chunkHeadLinePositionsNowIndex++;
+                    globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[chunkHeadLinePositionsNowIndex];
                 }                
             }
             
