@@ -10,5 +10,5 @@
 $ git clone https://github.com/KentaroUeda/ChunkPianoSystemM.git
 $ cd ChunkPianoSystemM
 $ npm install
-$ node ChunkPianoSystem_server.js
+$ npm start
 ```
