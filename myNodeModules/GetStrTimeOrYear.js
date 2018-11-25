@@ -1,7 +1,6 @@
 ﻿module.exports = function(mode){ // 'date' または 'time'
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     var date = new Date();
 
     if(mode == undefined){

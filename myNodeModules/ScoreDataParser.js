@@ -1,12 +1,10 @@
 ﻿module.exports = function(fileName){
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     var fs = require('fs'), 
         constructor, scoreDataJson, getNoteLinePosition, getRawData
     ;
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     getNoteLinePosition = function(){
         
         var noteLinePositionObj = {
@@ -21,22 +19,17 @@
             scoreColFirstLine = null
         ;
         
-        // 譜面の上段，下段の中間の y 座標を取得．チャンクで頭出しする際，上段，下段の判定に利用．
         noteLinePositionObj.middleAxisY = Math.floor(noteLinePositionObj.upperY + 
                                                      ((noteLinePositionObj.lowerY - noteLinePositionObj.upperY) / 2)
                                                      )
         ;
-
-        console.log("スコアデータのノート", scoreDataJson.notesCol);//TurcoScore.json参照
          
         for(var noteLine in scoreDataJson.notesCol){ //scoreDataJson.notesColのkeyをnoteLineに入れる　ex) "0"はkey，{"name":"B5",〜,"practiceMode":"rightHand"}はvalue (TurcoScore参照)だよ
-            console.log("ノートライン", noteLine);
             
             var intNoteLine = parseInt(noteLine, 10), //parseInt(string, radix); radixはstringに対する基数(今回の場合10進数)
                 beforeStringNoteLine = null
             ;
-            ///////////////////////////////////////////////
-            ///////////////////////////////////////////////
+
             // 音符列番号のどこからどこまでが譜面の1段目，2段目かをデータ化
             // 出力例: { '1': { start: '0', end: '48' }, '2': { start: '49', end: 82 } }
             if((intNoteLine > 0) && (intNoteLine < (Object.keys(scoreDataJson.notesCol).length -1))){
@@ -58,8 +51,7 @@
             }else if(noteLine == (Object.keys(scoreDataJson.notesCol).length -1)){
                 noteLinePositionObj.scoreCol[scoreColCounter] = {'start':scoreColFirstLine, 'end':intNoteLine};
             }
-            ///////////////////////////////////////////////
-            ///////////////////////////////////////////////
+
             // ScoreData から音符列の x 座標，y 座標のみを抽出．
             // 音符個別の y 座標は取得しない．音符個別の y 座標も取得したい場合は，getRawData を利用すべし．
             noteLinePositionObj.noteLine[noteLine] = {
@@ -70,8 +62,7 @@
         
         return noteLinePositionObj; 
     };
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     // ScoreData の生データを返す．
     getRawData = function(){
         return scoreDataJson; 
@@ -82,9 +73,7 @@
         var a = '{"result":true, "count":42}';
         scoreDataJson = JSON.parse(scoreDataJson);
     
-        // console.log(scoreDataJson);
     })();
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+
     return{getNoteLinePosition:getNoteLinePosition, getRawData:getRawData};
 };

@@ -1,7 +1,7 @@
 ﻿ChunkPianoSystem_client.initDomAction = function(globalMemCPSCIDA){    
     'use strict'
-    ///////////////////////////////////////////////
-    ///////////////////////////////////////////////
+    
+    
     var initDomAction, setPlayPosition, 
         playPosition = $('#playPosition')
     ;
@@ -28,8 +28,8 @@
             rejectChunkPracticeMode
         ;
         globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         // user name 入力処理
         
         // 一度ユーザネームを入力している場合，次回以降は localStorage に保存されている unerName をデフォルトで入力する．
@@ -71,8 +71,8 @@
         };
         
         swal(swalPromptOptionForUserNameProp, userNameSetter);   
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         // 演奏位置初期化処理
         // noteLinePosition を受け取ってから処理をしなければならないため，
         // callback を利用し サーバから noteLinePosition を受け取ってから下記の処理を行う．
@@ -84,8 +84,8 @@
                            )
             ;    
         });        
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         saveConfirmModalWindow = function(callback){
             swal({
                 title: '変更を保存しますか?',
@@ -111,16 +111,16 @@
                 }
             });
         };
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         // Chunk 描画処理．mousedown 時に描画開始位置を取得し，mouseup 時に描画終了位置を取得する．
         globalMemCPSCIDA.chunkDrawingArea.mousedown(function(e){
             chunkDrawingAreaMouseDowmPosX = parseInt(e.offsetX, 10);
             chunkDrawingAreaMouseDowmPosY = parseInt(e.offsetY, 10);
             isChunkDrawing = true;
         });
-        ///////////////////////////////////////////////
-        /////////////////////////////////////////////// 
+        
+         
         globalMemCPSCIDA.chunkDrawingArea.mouseup(function(e){
 
             if(isChunkDrawing){
@@ -151,8 +151,8 @@
                 isChunkDrawing = false;
             }
         });    
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         saveChunkButton.click(function(mode){
 
             if(Object.keys(globalMemCPSCIDA.chunkDataObj.chunkData).length == 0){ // chunk が一つも描画されていない時は保存処理を行わない．
@@ -195,8 +195,8 @@
                 swal(swalPromptOptionForPracDayProp, practiceDayChecker);                
             }
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         rejectChunkPracticeMode = function(){
             swal('チャンクで頭出しするには\nチャンクを1つ以上記入する\n必要があります...', '', 'warning');
             globalMemCPSCIDA.practicePointMode = 'notePosition';
@@ -207,8 +207,8 @@
                            )
             ;  
         };        
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         practicePointModeSelector.change(function(){
             
             globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
@@ -232,8 +232,8 @@
                 ;  
             }
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         leftPositionButton.click(function(){
             
             var isRejectChunkPractice = false;
@@ -269,8 +269,8 @@
                 ; 
             }
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         rightPositionButton.click(function(){
             
             var isRejectChunkPractice = false;
@@ -303,8 +303,8 @@
                 ;  
             }
         });        
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         loadChunkButton.click(function(){
             // todo: data で userName をサーバに渡し，その userName のファイルだけを req するようにする．
             // ここではサーバに保存されている ChunkPianoData 名のリストをリクエストしているだけ．
@@ -321,8 +321,8 @@
                 globalMemCPSCIDA.socketIo.emit('chunkFileNameReq',{});
             }
         });
-        ///////////////////////////////////////////////
-        ///////////////////////////////////////////////
+        
+        
         if(callback) callback();
     };
     
