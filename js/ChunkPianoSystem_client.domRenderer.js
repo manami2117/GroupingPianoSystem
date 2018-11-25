@@ -9,12 +9,18 @@
     // for in 文で回し1つずつ描画する．
     createChunkDom = function(chunkPropCCD){ 
 
-        var render, chunkDom, chunkDomId, chunkDomDelBtn; 
-            
+        var render, chunkDom, chunkDomId, chunkDomDelBtn, 
+            isGroupCountUninitialized = globalMemCPSDDR.groupCount[chunkPropCCD.groupMode] === undefined
+        ; 
+
         if (chunkPropCCD.width  === null || chunkPropCCD.width  === undefined) return;
         if (chunkPropCCD.height === null || chunkPropCCD.width  === undefined) return;
         if (chunkPropCCD.width  <= 5 || chunkPropCCD.height <= 5 ) return;
         
+        if (isGroupCountUninitialized){
+            globalMemCPSDDR.groupCount[chunkPropCCD.groupMode] = 0;
+        }
+
         // noteLinePosition が正しく受信されている / されていない で chunk 描画処理の順番を変更する必要がある．
         // そのため，チャンク描画処理を render 関数としてまとめた．
         render = function(){
@@ -29,10 +35,9 @@
                 chunkPropCCD.height = Math.abs(chunkPropCCD.height);
             }
             
+            chunkDomId = String() + chunkPropCCD.groupMode + 'Chunk_' + globalMemCPSDDR.groupCount[chunkPropCCD.groupMode];
             
-            // chunk dom のテンプレート生成，描画位置情報を css に変換，イベント登録
-            chunkDomId = String() + chunkPropCCD.chunkType + 'Chunk_' + globalMemCPSDDR.patternChunkCount;
-            chunkDom = $('<div class="chunk pattern" id="' + chunkDomId + '"></div>');
+            chunkDom = $('<div class="chunk ' + chunkPropCCD.groupMode + '" id="' + chunkDomId + '"></div>');
 
             chunkDom.css({ // jQuery で dom の css を変更するときの書法
                 'top'   : chunkPropCCD.top    + 'px',
@@ -41,13 +46,11 @@
                 'height': chunkPropCCD.height + 'px'
             });
             
-            
             chunkDom.mousedown(function(){
                 globalMemCPSDDR.isEditedByChunkMovingOrDelete = true; // chunkDom がクリック，または移動された際は編集された，と定義する
                 globalMemCPSDDR.isChunkDragging = true;
             });
-            
-            
+                        
             chunkDom.mouseup(function(event){
                 // solved: ここにチャンクの頭出し位置を計算する処理，データ構造にその情報を加える処理を追加．
                 //         この処理は DOM 追加時，mouseup 時の両方で行う必要あり．
@@ -103,17 +106,10 @@
             //       object の ファクトリ関数を定義し，最初から全てのプロパティを定義し，サブクラスでプロパティを拡張しないようにする．
             //       現状ではオブジェクトプロパティを確認するにはプログラムを実行する必要があり，メンテナンス性が低い!!!
             // html への chunkDom の追加と同時に オブジェクトのデータ構造にも chunkDom を追加．
-            globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] = {
-                left          : chunkPropCCD.left,
-                top           : chunkPropCCD.top,
-                width         : chunkPropCCD.width,
-                height        : chunkPropCCD.height,
-                chunkType     : chunkPropCCD.chunkType, // 本メソッドで拡張したプロパティ．ファクトリ関数で最初から生成するように変更すべし．
-                chunkHeadLine : getChunkHeadLine(chunkPropCCD), 
-                parentChunk   : null  // 本メソッドで拡張したプロパティ．ファクトリ関数で最初から生成するように変更すべし．
-            };
-            
-            
+
+            chunkPropCCD['chunkHeadLine'] = getChunkHeadLine(chunkPropCCD);
+            globalMemCPSDDR.chunkDataObj.chunkData[chunkDomId] = chunkPropCCD;
+
             // グローバルメンバの chunkHeadLinePositions にソート済みのチャンク頭出し位置を配列で格納
             // todo : この処理は delete, mouseup の際にも行う必要あり，
             //        それぞれの処理を終えてからこの処理を行うこと!!
@@ -122,9 +118,7 @@
             globalMemCPSDDR.chunkDrawingArea.append(chunkDom);
             console.log(globalMemCPSDDR.chunkDataObj);
             
-            if(chunkPropCCD.chunkType == 'pattern'){
-                globalMemCPSDDR.patternChunkCount++; // todo: phraseChunk, hardChunk 描画時のカウンティング処理を追加
-            }
+            globalMemCPSDDR.groupCount[chunkPropCCD.groupMode]++;
         };          
         
         
@@ -132,13 +126,10 @@
         // その場合は main class の reqNoteLinePosition を呼び出し再受信する．
         if(globalMemCPSDDR.noteLinePosition == null || globalMemCPSDDR.noteLinePosition == undefined){
             globalMemCPSDDR.reqNoteLinePosition(function(){
-                // console.log('----- reqNoteLinePositionCallback -----');
-                // console.log(globalMemCPSDDR.noteLinePosition);
                 render();
             });
             return 0; // return しないと render が2度実行されてしまう．
         }
-        // console.log(globalMemCPSDDR.noteLinePosition);
         
         render(); // 上記if文より下で実行すること．実行順序を入れ替えると，noteLinePosition を再受信した際に render が2度実行される．
     };
@@ -148,12 +139,7 @@
         var getPositionByBruteForceSearch, 
             chunkMiddleAxisY = 0
         ;
-        
-        // 2分木探索によるチャンク頭出し音符列の算出
-        // getPosition = function(startIndex, endIndex, notePositionArray){
-	       // var arrayCenterIndex = null;
-        // };
-        
+                
         // 力任せ法によるチャンク頭出し音符列の算出
         getPositionByBruteForceSearch = function(startIndex, endIndex, chunkLeftPosition, notePositionArray){
             var euclidDistance = 0,
@@ -170,12 +156,8 @@
             return nearestNotePosition;
         };
         
-        
         chunkMiddleAxisY = chunkPropGCL.top + (Math.floor(chunkPropGCL.height / 2));
-        // console.log('chunkMiddleAxisY: ' + chunkMiddleAxisY);
-        // console.log(globalMemCPSDDR.noteLinePosition.middleAxisY);
         
-        console.log(globalMemCPSDDR.noteLinePosition);
         // チャンクが上段に描画された場合のチャンク頭出し位置の算出
         if(chunkMiddleAxisY <= globalMemCPSDDR.noteLinePosition.middleAxisY){
         

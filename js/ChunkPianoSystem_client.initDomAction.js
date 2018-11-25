@@ -15,6 +15,7 @@
             alertText = $('.textInput#alertText'),
             textArea = $('#textArea'),
             practicePointModeSelector = $('#practicePointModeSelector'),
+            groupModeSelector = $('#groupModeSelector'),
             leftPositionButton = $('#leftPositionButton'),
             rightPositionButton = $('#rightPositionButton'),
             beforeColor = '',
@@ -28,10 +29,9 @@
             rejectChunkPracticeMode
         ;
         globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
-        
-        
-        // user name 入力処理
-        
+        globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val();
+
+        // user name 入力処理        
         // 一度ユーザネームを入力している場合，次回以降は localStorage に保存されている unerName をデフォルトで入力する．
         // localStrage はブラウザのバージョンによっては実装されていないので念のため try - catch する. 
         try{
@@ -141,7 +141,7 @@
                     top        : chunkDrawingAreaMouseDowmPosY,
                     width      : chunkSizeX,
                     height     : chunkSizeY,
-                    chunkType  : 'pattern',
+                    groupMode  : globalMemCPSCIDA.groupMode,
                     parentChunk: null
                 };
 
@@ -151,7 +151,6 @@
                 isChunkDrawing = false;
             }
         });    
-        
         
         saveChunkButton.click(function(mode){
 
@@ -196,7 +195,6 @@
             }
         });
         
-        
         rejectChunkPracticeMode = function(){
             swal('チャンクで頭出しするには\nチャンクを1つ以上記入する\n必要があります...', '', 'warning');
             globalMemCPSCIDA.practicePointMode = 'notePosition';
@@ -233,6 +231,9 @@
             }
         });
         
+        groupModeSelector.change(function(){ 
+            globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val();
+        });
         
         leftPositionButton.click(function(){
             

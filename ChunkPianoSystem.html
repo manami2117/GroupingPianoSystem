@@ -36,14 +36,21 @@
             <!--input type="input/text" class="textInput" id="alertText" placeholder="テキストを入力してください..." /-->
             <div class="button" id="saveChunkButton">チャンクを保存</div>
             
-            <select id="practicePointModeSelector">
+            <select class="cpsSelector" id="practicePointModeSelector">
                 <option value="notePosition" selected>音符列で頭出し</option>
                 <option value="chunk">チャンクで頭出し</option>
             </select>
             
             <div class="button" id="leftPositionButton">←</div>
             <div class="button" id="rightPositionButton">→</div>
+
             
+            <select class="cpsSelector" id="groupModeSelector">
+                <option value="score" selected>譜面グループ</option>
+                <option value="performance">演奏グループ</option>
+                <option value="knowledgeApplication" >知識応用グループ</option>
+            </select>
+
         </div>
         
         <!--div class="helloHtml" id="mainFlame">
