@@ -17,6 +17,7 @@
             createChunkDom:null,
             isFromLoadChunkButton:false,
             practicePointMode:null,
+            groupMode:null,
             isEditedByChunkMovingOrDelete:false, 
             isEditedByNewChunk:false,
             noteLinePosition:null,
@@ -27,9 +28,7 @@
                 chunkData:{},
                 practiceDay:null
             },
-            patternChunkCount:0,
-            phraseChunkCount:0,
-            hardChunkCount:0
+            groupCount:{}
         }, 
         // !!! グローバルメンバを宣言してからサブクラスのインスタンス化を行う
         createChunkDom =  ChunkPianoSystem_client.domRenderer(globalMem).createChunkDom,

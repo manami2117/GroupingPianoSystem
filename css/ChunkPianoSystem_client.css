@@ -180,15 +180,15 @@
     cursor: move;
 }
 
-.chunk.pattern{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
+.chunk.score{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
     border-color: #d1a3ff;
 }
 
-.chunk.phrase{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
+.chunk.performance{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
     border-color: #085002;
 }
 
-.chunk.hard{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
+.chunk.knowledgeApplication{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
     border-color: #05119a;
 }
 
@@ -222,7 +222,7 @@
     width: 350px;
 }
 
-#practicePointModeSelector{
+.cpsSelector{
     position: relative;
     top:4px;
     margin-left: 20px;
