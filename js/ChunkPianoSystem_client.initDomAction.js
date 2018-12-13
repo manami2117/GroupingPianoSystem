@@ -12,6 +12,7 @@
             loadChunkButton = $('#loadChunkButton'), //"ファイル読込"ボタン
             practicePointModeSelector = $('#practicePointModeSelector'), //"音符列 or グループで頭出し"セレクタ
             groupModeSelector = $('#groupModeSelector'), //"譜面 or 演奏 or 知識応用グループ"セレクタ
+            groupDisplayModeSelector = $('#groupDisplayModeSelector'), //形成したグループのうち"譜面 or 演奏 or 知識応用"のいずれかのグループだけを表示するセレクタ
             leftPositionButton = $('#leftPositionButton'), //"←"ボタン
             rightPositionButton = $('#rightPositionButton'), //"→"ボタン
             isChunkDrawing = false,
@@ -31,6 +32,7 @@
         //jsでoptionのvalueを取得する方法：https://www.deep-blog.jp/engineer/archives/5476/
         globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val(); //"音符列 or グループで頭出しセレクタ"のvalueを取得
         globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val(); //"譜面 or 演奏 or 知識応用グループセレクタ"のvalueを取得
+        globalMemCPSCIDA.groupDisplayMode = $('#groupDisplayModeSelector option:selected').val(); //"グループごとに表示セレクタ"のvalueを取得
 
         // user name 入力処理        
         // 一度ユーザネームを入力している場合，次回以降は localStorage に保存されている unerName をデフォルトで入力する．

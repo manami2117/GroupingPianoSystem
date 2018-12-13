@@ -10,8 +10,9 @@
             reqNoteLinePosition:null,
             turnNotEditedMode:null, // 後方参照ができないので，一旦 null を代入し，クラス内メンバの宣言が終わってからメンバを代入
             isFromLoadChunkButton:false,
-            practicePointMode:null,
-            groupMode:null,
+            practicePointMode:null,//音符列orグループで頭出し
+            groupMode:null,//色分けグループ形成
+            groupDisplayMode:null,//グループごと表示
             isEditedByChunkMovingOrDelete:false, 
             isEditedByNewChunk:false,
             noteLinePosition:null,
