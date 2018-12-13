@@ -10,8 +10,8 @@
      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
      font-size: 16px;
      line-height: 1.5em;
-     color: #545454;
-     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+     color: #65799b;
+     box-shadow: 0 0 2px rgba(108, 115, 126, 0.6);
  }
  
  h1, h2, h3, h4, h5, h6 {
@@ -46,16 +46,16 @@
      padding: 0px 5px 4px 5px;
      border-radius: 3px;
      border: solid 2px;
-     border-color: #b9ac92;
+     border-color: rgba(108, 123, 137, 0.6);
      font-size: 20px;
-     color: #b9ac92; /* font color */
+     color: rgba(108, 123, 137, 0.6); /* font color */
      cursor: pointer;
  }
  
  .button:hover{
      background-color: transparent;
-     border-color: #9d8e71;
-     color: #9d8e71;
+     border-color: rgba(108, 123, 137, 0.8);
+     color: rgba(108, 123, 137, 0.8);
  }
  
  @-webkit-keyframes colorize {
@@ -79,7 +79,7 @@
 .testFrame{ 
     /* . とクラス名で html の要素を取得 */
     position: relative; /* relative は相対位置で表示．absolute は絶対位置で表示*/
-    background-color: rgba(239, 233, 227, 1.0);
+    background-color: #e8ecf1;
     width: inherit;
     top:-50px;
     margin: 0 auto; /* 中央寄せは position が relative でないといかん */
@@ -103,7 +103,7 @@
 }
 
 .testFrame #changeColorButton:active{ 
-    background-color: #fffefc;
+    background-color: #e8ecf1;
 }
 
 .testFrame #alertText{
@@ -157,27 +157,27 @@
     position: absolute;
     height: 150px;
     width: 6px;
-    background-color: rgba(0, 0, 0, 0.62);
+    background-color: rgba(108, 115, 126, 0.6);
     margin: 0 auto;
 }
 
 .chunk{
     position: absolute;
     border: solid 3px;
-    background-color: rgba(209, 163, 255, 0.08);
+    background-color: transparent;
     cursor: move;
 }
 
 .chunk.score{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
-    border-color: #d1a3ff;
+    border-color: #7393a7;
 }
 
 .chunk.performance{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
-    border-color: #085002;
+    border-color: #b5cfd8;
 }
 
 .chunk.knowledgeApplication{ /* chunk クラスかつ pattern クラスを持っている要素に適用 */
-    border-color: #05119a;
+    border-color: #6c737e;
 }
 
 .chunkDeleteButton{
@@ -186,16 +186,16 @@
     right:0px; /* CSS で absolute 要素をボックス内で右寄せ: http://so-zou.jp/web-app/tech/css/sample/align.htm */
     width: 10px;
     height: 10px;
-    background: rgba(147, 0, 0, 0.69);
+    background: rgba(147, 0, 0, 0.55);
     cursor: pointer;
 }
 
 .chunkDeleteButton:hover{ /* マウスホバー時のスタイル*/
-    background: #9b2f2f;
+    background: rgba(147, 0, 0, 0.63);
 }
 
 .chunkDeleteButton:active{ /* マウスクリック時のスタイル*/
-    background: #a25151;
+    background: rgba(147, 0, 0, 0.63);
 }
 
 .chunkDeleteButtonFont{

@@ -1,7 +1,7 @@
 ﻿module.exports = function(mode){ // 'date' または 'time'
     'use strict'
 
-    var date = new Date();
+    var date = new Date();//https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date
 
     if(mode == undefined){
         console.error('getStringTime needs argument');

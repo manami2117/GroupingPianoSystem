@@ -34,11 +34,15 @@
         <div class="testFrame" id="lowerFrame">
             <div class="button" id="loadChunkButton">ファイル読込</div>
             <!--input type="input/text" class="textInput" id="alertText" placeholder="テキストを入力してください..." /-->
-            <div class="button" id="saveChunkButton">チャンクを保存</div>
+            <div class="button" id="saveChunkButton">グループを保存</div>
             
+            <!--セレクタ作成-->
             <select class="cpsSelector" id="practicePointModeSelector">
-                <option value="notePosition" selected>音符列で頭出し</option>
-                <option value="chunk">チャンクで頭出し</option>
+                <!--<OPTION>は セレクトボックス<SELECT</SELECT>の選択肢を指定するタグで，<OPTION>タグ1つにつき，1つの選択肢
+                    value: 選択項目の値を指定，文字列
+                    selected: 項目をすでに選択されている状態にする-->
+                <option value="notePosition" selected>音符列で頭出し</option> <!--"音符列で頭出し"があらかじめ表示されている-->
+                <option value="chunk">グループで頭出し</option>
             </select>
             
             <div class="button" id="leftPositionButton">←</div>

@@ -85,7 +85,7 @@ var ChunkPianoSystem_server = function(){
                        console.log(err);
                        socket.emit('chunkDataSaveRes',{
                            status: 'error', // status は success, error, sameFileExist
-                           message: 'チャンクデータの保存に\n失敗しました...'
+                           message: 'グループデータの保存に\n失敗しました...'
                        });
                    }else{
                        // todo: 既に同じファイル名が存在する時の確認処理を追加
@@ -93,26 +93,29 @@ var ChunkPianoSystem_server = function(){
                        
                        socket.emit('chunkDataSaveRes',{
                            status: 'success', // status は success, error, sameFileExist
-                           message: 'チャンクデータの保存を\n完了しました'
+                           message: 'グループデータの保存を\n完了しました'
                        });
                    }
                 });
             });
             
-            socket.on('chunkFileNameReq', function(data){
+            socket.on('chunkFileNameReq', function(data){//https://sailsjs.com/documentation/reference/web-sockets/socket-client/io-socket-on
                 
                 getChunkDataJsonList('./ChunkData/', function(fileNameList, e){
                     if(e){
                         console.log(e);
                     }else{
                         // todo: 保存しているファイルがない場合の処理を追加
-                        socket.emit('chunkFileNameList',{
+                        socket.emit('chunkFileNameList',{ //socket.emit(eventname, data) でイベントを発火(=データの送信)をし、socket.on(eventname, callback) でイベントを検知(=データの受信)を行います。
                             status: 'success', // status は success, error, sameFileExist
-                            message: 'チャンクデータの保存を\n完了しました',
+                            message: 'グループデータの保存を\n完了しました',
                             fileNameList:fileNameList
                         });
                     }
                 });
+                //↓11/27追加
+                console.log(`status: ${socket.emit.status}`);
+                console.log(`fileNameList: ${socket.emit.fileNameList}`);
             });
             
             socket.on('chunkDataReq', function(data){
@@ -122,14 +125,14 @@ var ChunkPianoSystem_server = function(){
                     reqestedChunkData = fs.readFileSync('./ChunkData/' + data.requestChunkDataFileName, 'utf-8');
                     socket.emit('reqestedChunkData',{
                         status: 'success', // status は success, error, sameFileExist
-                        message: 'チャンクデータの読み込みを\n完了しました',
+                        message: 'グループデータの読み込みを\n完了しました',
                         reqestedChunkData:reqestedChunkData
                     });
                 }catch(e){
                     console.log(e);
                     socket.emit('reqestedChunkData',{
                         status: 'error', // status は success, error, sameFileExist
-                        message: 'チャンクデータの読み込みに\n失敗しました...'
+                        message: 'グループデータの読み込みに\n失敗しました...'
                     });
                 }
             });

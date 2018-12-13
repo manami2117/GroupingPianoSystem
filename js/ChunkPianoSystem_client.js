@@ -27,6 +27,9 @@
     ;
 
     var domRenderer =  ChunkPianoSystem_client.domRenderer(globalMem);
+   
+    //↓11/28追加
+    console.log(`domRenderer: ${domRenderer}`);
     
     // このメソッドは chunkDataObj の chunkData のみを初期化する
     // チャンクのカウントもリセットするので注意...

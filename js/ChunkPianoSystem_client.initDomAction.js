@@ -6,53 +6,64 @@
     ;
     
     init = function(){
-        
-        var saveChunkButton = $('#saveChunkButton'),
-            loadChunkButton = $('#loadChunkButton'),            
-            practicePointModeSelector = $('#practicePointModeSelector'),
-            groupModeSelector = $('#groupModeSelector'),
-            leftPositionButton = $('#leftPositionButton'),
-            rightPositionButton = $('#rightPositionButton'),
+        //Question. なぜオブジェクトじゃないのか
+        //$(element) 指定したDOM要素をjQueryオブジェクトにして返す
+        var saveChunkButton = $('#saveChunkButton'), //"グループを保存"ボタン
+            loadChunkButton = $('#loadChunkButton'), //"ファイル読込"ボタン
+            practicePointModeSelector = $('#practicePointModeSelector'), //"音符列 or グループで頭出し"セレクタ
+            groupModeSelector = $('#groupModeSelector'), //"譜面 or 演奏 or 知識応用グループ"セレクタ
+            leftPositionButton = $('#leftPositionButton'), //"←"ボタン
+            rightPositionButton = $('#rightPositionButton'), //"→"ボタン
             isChunkDrawing = false,
             chunkDrawingAreaMouseDowmPosX = 0,
             chunkDrawingAreaMouseDowmPosY = 0,
             chunkHeadLinePositionsNowIndex = 0,
             swalPromptOptionForUserNameProp,
             defaultUserName = null,
-            userNameSetter,
-            saveConfirmModalWindow,
-            rejectChunkPracticeMode
+            userNameSetter, //ユーザー名を記入する際のウィンドウ
+            saveConfirmModalWindow, //"グループを保存"をクリックした時に表示されるウィンドウ
+            rejectChunkPracticeMode //"グループで頭出し"を選択する際にグループが1つも記入されていなかった場合のアラート
         ;
-        globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
-        globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val();
+
+        //Question. globalMemCPSCIDAはglobalMemじゃダメなのか →ChunkPianoSystem_client.jsのコンストラクタの変数として指定されている
+        //クラスなどを2つ以上定義するときは，はじめのクラス名のあとスペース必要！
+        //jsでselectタグを選択状態にする方法：https://techacademy.jp/magazine/18491
+        //jsでoptionのvalueを取得する方法：https://www.deep-blog.jp/engineer/archives/5476/
+        globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val(); //"音符列 or グループで頭出しセレクタ"のvalueを取得
+        globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val(); //"譜面 or 演奏 or 知識応用グループセレクタ"のvalueを取得
 
         // user name 入力処理        
         // 一度ユーザネームを入力している場合，次回以降は localStorage に保存されている unerName をデフォルトで入力する．
         // localStrage はブラウザのバージョンによっては実装されていないので念のため try - catch する. 
+        //try-catch：https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Exception_Handling_Statements/try...catch_Statement
+        //
         try{
-            defaultUserName = localStorage.getItem('chunkPianoSystem_userName');
-            if(defaultUserName == null || defaultUserName == undefined){
-                defaultUserName = '';
+            defaultUserName = localStorage.getItem('chunkPianoSystem_userName');//chunkPianoSystem_userNameのvalue (ユーザーネーム) を取得．
+            if(defaultUserName == null || defaultUserName == undefined){ //ユーザーネームがないまたは定義されていない場合
+                defaultUserName = ''; //defaultUserNameは空
             }
         }catch(e){
             console.log(e);
         }
         
-        swalPromptOptionForUserNameProp = {
-            title: 'ユーザ名を入力してください...',
-            type: 'input',
-            inputValue: defaultUserName,
-            showCancelButton: false,
-            closeOnConfirm: false, // これを true にすると practiceDayChecker が呼び出されなくなる!!!
-            animation: 'slide-from-top',
-            inputPlaceholder: 'ここにユーザ名を入力'                    
+        //参考になりそう (A replacement for the "prompt" function)：https://lipis.github.io/bootstrap-sweetalert/
+        //Question. okボタンがどこで生成されているか分からない…
+        swalPromptOptionForUserNameProp = { //ユーザーネーム入力フォーム．プロンプト機能付きアラート．
+            title: 'ユーザ名を入力してください...', //文字通りタイトル
+            type: 'input', //入力タイプなんだろうけど…．//Question. 公式に書いてないけど違うページには書いてある…納得いかない…．
+            inputValue: defaultUserName, //Question. ネットで調べるとだいたい関数で書かれているんだけど，なぜオブジェクト…？
+            //↓Question. showCancelButtonとcloseOnConfirmはなんで書いているのか…あ，そういう型なのか…？
+            showCancelButton: false, //キャンセルボタンを表示するか否か．trueは表示，falseは非表示
+            closeOnConfirm: false, // これを true にすると practiceDayChecker が呼び出されなくなる!!! //Question. これはなんなんだろう…
+            animation: 'slide-from-top', //アラートの現れ方．上からスライドされて出て来る．
+            inputPlaceholder: 'ここにユーザ名を入力' //プレースホルダ：とりあえず入れておく仮の情報のこと．ex. フォーム入力欄にあらかじめ記入されている薄い灰色のテキスト．          
         };
         
         userNameSetter = function(userNameUNS){
 
-            if(userNameUNS == '' || userNameUNS == null || userNameUNS == undefined){
+            if(userNameUNS == '' || userNameUNS == null || userNameUNS == undefined){//ユーザーネームを記入せずokを押したとき
                 swal.showInputError('ユーザ名は必須です!');
-            }else{
+            }else{//
                 globalMemCPSCIDA.chunkDataObj.userName = userNameUNS;
                 // 何度もユーザ名を入力しなくても済むよう，localStorage にユーザネームを登録．
                 // localStrage はブラウザのバージョンによっては実装されていないので念のため try - catch する. 
@@ -65,6 +76,7 @@
             }
         };
         
+        //Question. 関数の実行みたいな立ち位置な気がするけど，swalPromptOptionForUserNamePropは関数ではなくない？という謎．
         swal(swalPromptOptionForUserNameProp, userNameSetter);   
                 
         // 演奏位置初期化処理
@@ -72,15 +84,16 @@
         // callback を利用し サーバから noteLinePosition を受け取ってから下記の処理を行う．
         // todo: 実行順序の管理が大変になってきた... スマートな解決策はないか? 
         globalMemCPSCIDA.reqNoteLinePosition(function(){      
-            globalMemCPSCIDA.nowNoteRowCount = 0;
-            setPlayPosition(globalMemCPSCIDA.noteLinePosition.noteLine[0].axisX, 
-                            globalMemCPSCIDA.noteLinePosition.noteLine[0].axisY
+            globalMemCPSCIDA.nowNoteRowCount = 0;//多分現在の音符番号を初期化
+            setPlayPosition(globalMemCPSCIDA.noteLinePosition.noteLine[0].axisX, //多分現在の演奏音（現在のインジケータの位置にある音符）のx軸？
+                            globalMemCPSCIDA.noteLinePosition.noteLine[0].axisY //多分現在の演奏音のy軸？
                            )
             ;    
         });        
         
-        saveConfirmModalWindow = function(callback){
-            swal({
+        //Question. 関数の中に関数が入っているよく分からんやつ．swalはおおよそ大丈夫
+        saveConfirmModalWindow = function(callback){//保存ウィンドウ 動作①
+            swal({ //動作②
                 title: '変更を保存しますか?',
                 type: 'info',
                 showCancelButton: true,
@@ -90,10 +103,9 @@
                 cancelButtonText: '保存しない',
                 closeOnConfirm: false,
                 closeOnCancel: false
-            }, function (isConfirm){ // 保存する をクリックした場合
+            }, function (isConfirm){ // 保存する をクリックした場合　動作③
                 if(isConfirm){
                     // saveChunkButton をクリックすれば．保存モードに移行できる．
-                    //
                     globalMemCPSCIDA.isFromLoadChunkButton = true;
                     saveChunkButton.click(); 
                 }else{            
@@ -146,7 +158,7 @@
         saveChunkButton.click(function(mode){
 
             if(Object.keys(globalMemCPSCIDA.chunkDataObj.chunkData).length == 0){ // chunk が一つも描画されていない時は保存処理を行わない．
-                swal('保存するにはチャンクを\n1つ以上記入してください!', '', 'warning');
+                swal('保存するにはグループを\n1つ以上記入してください!', '', 'warning');
             }else{
                 var practiceDayChecker, swalPromptOptionForPracDayProp; 
 
@@ -187,7 +199,7 @@
         });
         
         rejectChunkPracticeMode = function(){
-            swal('チャンクで頭出しするには\nチャンクを1つ以上記入する\n必要があります...', '', 'warning');
+            swal('グループで頭出しするには\nグループを1つ以上記入する\n必要があります...', '', 'warning');
             globalMemCPSCIDA.practicePointMode = 'notePosition';
             practicePointModeSelector.val('notePosition');
             globalMemCPSCIDA.nowNoteRowCount = 0;
@@ -199,6 +211,7 @@
                 
         practicePointModeSelector.change(function(){
             
+            //Question. 初期値で指定しているのにわざわざここでもう1回書く意味が分からない
             globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val();
             
             if(globalMemCPSCIDA.practicePointMode == 'chunk'){
@@ -245,7 +258,7 @@
                 if(!isChunkExists){
                     rejectChunkPracticeMode();
                     isRejectChunkPractice = true;
-                // チャンクの頭出し位置が既に先頭要素を指している場合に「←」が押下された場合は、頭出し位置を末尾要素にする。
+                // グループの頭出し位置が既に先頭要素を指している場合に「←」が押下された場合は、頭出し位置を末尾要素にする。
                 }else if(chunkHeadLinePositionsNowIndex === 0){
                     chunkHeadLinePositionsNowIndex = globalMemCPSCIDA.chunkHeadLinePositions.length - 1;
                     globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[chunkHeadLinePositionsNowIndex];
@@ -284,7 +297,7 @@
                 if(!isChunkExists){
                     rejectChunkPracticeMode();
                     isRejectChunkPractice = true;
-                // チャンクの頭出し位置が既に末尾要素を指している場合に「→」が押下された場合は、頭出し位置を先頭要素にする。
+                // グループの頭出し位置が既に末尾要素を指している場合に「→」が押下された場合は、頭出し位置を先頭要素にする。
                 }else if(chunkHeadLinePositionsNowIndex === globalMemCPSCIDA.chunkHeadLinePositions.length - 1){
                     chunkHeadLinePositionsNowIndex = 0;
                     globalMemCPSCIDA.nowNoteRowCount = globalMemCPSCIDA.chunkHeadLinePositions[0];
