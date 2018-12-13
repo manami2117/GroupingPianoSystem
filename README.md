@@ -7,7 +7,7 @@
 ## 起動方法
 
 ```shell
-$ git clone https://github.com/KentaroUeda/ChunkPianoSystemM.git
+$ git clone https://github.com/manami2117/GroupingPianoSystem
 $ cd ChunkPianoSystemM
 $ npm install
 $ npm start
