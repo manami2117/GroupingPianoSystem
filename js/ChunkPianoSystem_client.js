@@ -2,7 +2,8 @@
     'use strict'    
     
     var initSocketIo,
-        resetChunkDrawingAreaAndChunkData, 
+        //resetChunkDrawingAreaAndChunkData,
+
         // 複数のクラスで利用するメンバはこの globalMem オブジェクトに定義し，インスタンス生成時に引数として渡す.
         globalMem = { // 複数のクラスで利用するメンバ/メソッドはここで定義すること        
             chunkDrawingArea:$('#chunkDrawingArea'),
@@ -23,9 +24,18 @@
                 chunkData:{},
                 practiceDay:null
             },
-            groupCount:{}
+            groupCount:{},
+            resetChunkDrawingAreaAndChunkData:function(){
+                globalMem.chunkDataObj.chunkData = {};
+                globalMem.patternChunkCount = 0;
+                globalMem.phraseChunkCount = 0;
+                globalMem.hardChunkCount = 0;
+                globalMem.chunkDrawingArea.empty();
+            }
         }
     ;
+
+    globalMem.resetChunkDrawingAreaAndChunkData();
 
     var domRenderer =  ChunkPianoSystem_client.domRenderer(globalMem);
    
@@ -34,13 +44,13 @@
     
     // このメソッドは chunkDataObj の chunkData のみを初期化する
     // チャンクのカウントもリセットするので注意...
-    resetChunkDrawingAreaAndChunkData = function(){
-        globalMem.chunkDataObj.chunkData = {};
-        globalMem.patternChunkCount = 0;
-        globalMem.phraseChunkCount = 0;
-        globalMem.hardChunkCount = 0;
-        globalMem.chunkDrawingArea.empty();
-    };
+    //resetChunkDrawingAreaAndChunkData = function(){
+      //  globalMem.chunkDataObj.chunkData = {};
+       // globalMem.patternChunkCount = 0;
+        //globalMem.phraseChunkCount = 0;
+        //globalMem.hardChunkCount = 0;
+        //globalMem.chunkDrawingArea.empty();
+    //};
     
     
     // turnNotEditedMode はクラスにして編集状態の変更をメソッドで実行するようにする
@@ -147,9 +157,9 @@
         
         globalMem.socketIo.on('reqestedChunkData', function(data){ // ロードリクエストをした chunkData がレスポンスされた時
                         
-            resetChunkDrawingAreaAndChunkData();
+            globalMem.resetChunkDrawingAreaAndChunkData();
             data.reqestedChunkData = JSON.parse(data.reqestedChunkData);
-            
+
             for(var chunkId in data.reqestedChunkData.chunkData){
                 domRenderer.createChunkDom(data.reqestedChunkData.chunkData[chunkId]);
             }

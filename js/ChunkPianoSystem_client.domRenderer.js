@@ -11,7 +11,7 @@
     createChunkDom = function(chunkPropCCD){ 
 
         var render, chunkDom, chunkDomId, chunkDomDelBtn, 
-            isGroupCountUninitialized = globalMemCPSDDR.groupCount[chunkPropCCD.groupMode] === undefined
+            isGroupCountUninitialized = globalMemCPSDDR.groupCount[chunkPropCCD.groupMode] === undefined //Question. 分からない…
         ; 
 
         if (chunkPropCCD.width  === null || chunkPropCCD.width  === undefined) return;
@@ -37,9 +37,9 @@
             }
             
             chunkDomId = String() + chunkPropCCD.groupMode + 'Chunk_' + globalMemCPSDDR.groupCount[chunkPropCCD.groupMode];
-            
             chunkDom = $('<div class="chunk ' + chunkPropCCD.groupMode + '" id="' + chunkDomId + '"></div>');
-
+            console.log("せやかて: " + '<div class="chunk ' + chunkPropCCD.groupMode + '" id="' + chunkDomId + '"></div>');
+            
             chunkDom.css({ // jQuery で dom の css を変更するときの書法
                 'top'   : chunkPropCCD.top    + 'px',
                 'left'  : chunkPropCCD.left   + 'px',
@@ -47,6 +47,13 @@
                 'height': chunkPropCCD.height + 'px'
             });
             
+            //昨日追加
+            var div = document.createElement('div');
+            //div.textContent = 'hoge';
+            var eisa = document.getElementById('chunkDrawingArea');
+            eisa.appendChild(div);
+            //
+
             chunkDom.mousedown(function(){
                 globalMemCPSDDR.isEditedByChunkMovingOrDelete = true; // chunkDom がクリック，または移動された際は編集された，と定義する
                 globalMemCPSDDR.isChunkDragging = true;
