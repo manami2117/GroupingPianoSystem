@@ -175,15 +175,19 @@
         var sortedChunkHeadLine = []; 
         
         for(var chunk_dom_id in chunkData){
-            // css プロパティは勝手に string に変換されている場合があるので　parseInt を忘れずに行う．
-            sortedChunkHeadLine.push(parseInt(chunkData[chunk_dom_id].chunkHeadLine, 10));
+            if (globalMemCPSDDR.groupDisplayMode === 'all') {
+                sortedChunkHeadLine.push(parseInt(chunkData[chunk_dom_id].chunkHeadLine, 10));           
+            } else {
+                if (globalMemCPSDDR.groupDisplayMode === chunkData[chunk_dom_id].groupMode) {
+                    sortedChunkHeadLine.push(parseInt(chunkData[chunk_dom_id].chunkHeadLine, 10));           
+                }
+            }    
         }
         sortedChunkHeadLine.sort(function(a,b){
             return a - b;
         });
-        console.info(sortedChunkHeadLine);        
         return sortedChunkHeadLine;
     };
     
-    return{createChunkDom:createChunkDom};
+    return{createChunkDom:createChunkDom, getSortedChunkHeadLine:getSortedChunkHeadLine};
 };
