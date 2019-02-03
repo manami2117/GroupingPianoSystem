@@ -32,7 +32,7 @@
         //jsでoptionのvalueを取得する方法：https://www.deep-blog.jp/engineer/archives/5476/
         globalMemCPSCIDA.practicePointMode = $('#practicePointModeSelector option:selected').val(); //"音符列 or グループで頭出しセレクタ"のvalueを取得
         globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val(); //"譜面 or 演奏 or 知識応用グループセレクタ"のvalueを取得
-        //globalMemCPSCIDA.groupDisplayMode = $('#groupDisplayModeSelector option:selected').val(); //"グループごとに表示セレクタ"のvalueを取得
+        globalMemCPSCIDA.groupDisplayMode = $('#groupDisplayModeSelector option:selected').val(); //"グループごとに表示セレクタ"のvalueを取得
 
         // user name 入力処理        
         // 一度ユーザネームを入力している場合，次回以降は localStorage に保存されている unerName をデフォルトで入力する．
@@ -240,67 +240,16 @@
             globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val();
         });
 
-        groupDisplayModeSelector.change(function(){ //グループごとに表示
-            
-           // console.log("おなかすいた:" + Object.keys(globalMemCPSCIDA.chunkDataObj.chunkData).length);
-
-            //Question. 初期値で指定しているのにわざわざここでもう1回書く意味が分からない
+        groupDisplayModeSelector.change(function(){ //グループごとに表示            
             globalMemCPSCIDA.groupDisplayMode = $('#groupDisplayModeSelector option:selected').val(); 
-            //domRenderer.createChunkDom({left:55, top:55,width:100, height:100, groupMode:"score", parentChunk:null});
-
-            //globalMemCPSCIDA.resetChunkDrawingAreaAndChunkData(); //ひとつのグループのみ表示させるために一旦グループデータをリセットさせる
-            //const groupDMS = function groupDMS (data, callback) {
-                for (var key in globalMemCPSCIDA.chunkDataObj.chunkData) {
-                    var data = globalMemCPSCIDA.chunkDataObj.chunkData [key];//chunkdataは
-                    //console.log("まっちゃ:" + data);
-                    var cDA = document.getElementById('chunkDrawingArea');
-                    var chunkDomKey = document.getElementById(key);//グループ（四角）そのもの
-                    //console.log("楽天：" + chunkDomKey.id);//scoreChunk_0とか
+            globalMemCPSCIDA.chunkHeadLinePositions = domRenderer.getSortedChunkHeadLine(globalMemCPSCIDA.chunkDataObj.chunkData);
             
-                    if(globalMemCPSCIDA.groupDisplayMode === 'scoreDisplay'){
-                        //console.log("scoreDisplay");
-                        if(data.groupMode === 'score'){
-                            if(chunkDomKey === null){
-                                domRenderer.createChunkDom (data);
-                            }
-                        }else if(chunkDomKey !== null){//グループの種類がスコア以外
-                            chunkDomKey.remove(); // クリックされた chunkDomDelBtn の親要素 == ユーザが消したい chunk dom
-                            // html の chunkDom の削除と同時に オブジェクトのデータ構造内の該当する chunkDom も削除．
-                            delete globalMemCPSCIDA.chunkDataObj.chunkData[chunkDomKey];
-                            globalMemCPSCIDA.isEditedByChunkMovingOrDelete = true;
-                            //globalMemCPSCIDA.chunkHeadLinePositions = getSortedChunkHeadLine(globalMemCPSCIDA.chunkDataObj.chunkData);
-                        }
-                    }else if(globalMemCPSCIDA.groupDisplayMode === 'performanceDisplay'){
-                        if(data.groupMode === 'performance'){
-                            if(chunkDomKey === null){
-                                domRenderer.createChunkDom (data);
-                            }
-                        }else if(chunkDomKey !== null){//グループの種類がスコア以外
-                            chunkDomKey.remove(); // クリックされた chunkDomDelBtn の親要素 == ユーザが消したい chunk dom
-                            // html の chunkDom の削除と同時に オブジェクトのデータ構造内の該当する chunkDom も削除．
-                            delete globalMemCPSCIDA.chunkDataObj.chunkData[chunkDomKey];
-                            globalMemCPSCIDA.isEditedByChunkMovingOrDelete = true;
-                            //globalMemCPSCIDA.chunkHeadLinePositions = getSortedChunkHeadLine(globalMemCPSCIDA.chunkDataObj.chunkData);
-                        }                         
-                         // domRenderer.createChunkDom(data);
-                    }else if(globalMemCPSCIDA.groupDisplayMode === 'knowledgeAppDisplay'){
-                        if(data.groupMode === 'knowledgeApplication'){//data.scoreChunk_0
-                            console.log("天パ");
-                            if(chunkDomKey === null){
-                                domRenderer.createChunkDom (data);
-                                console.log("忘れる訳ないじゃん");
-                            }
-                        }else if(chunkDomKey !== null){//グループの種類がスコア以外
-                            chunkDomKey.remove(); // クリックされた chunkDomDelBtn の親要素 == ユーザが消したい chunk dom
-                            // html の chunkDom の削除と同時に オブジェクトのデータ構造内の該当する chunkDom も削除．
-                            delete globalMemCPSCIDA.chunkDataObj.chunkData[chunkDomKey];
-                            globalMemCPSCIDA.isEditedByChunkMovingOrDelete = true;
-                            //globalMemCPSCIDA.chunkHeadLinePositions = getSortedChunkHeadLine(globalMemCPSCIDA.chunkDataObj.chunkData);
-                        }
-                    }
-                }
-                //console.log("やっほーい" + globalMemCPSCIDA.chunkDataObj.chunkData.scoreChunk_0);
-            //}
+            if(globalMemCPSCIDA.groupDisplayMode === 'all') {
+                $('.chunk').css({'display':'block'});
+            } else {
+                $('.chunk').css({'display':'none'});
+                $('.chunk.' + globalMemCPSCIDA.groupDisplayMode).css({'display':'block'});
+            } 
         });
         
         leftPositionButton.click(function(){
