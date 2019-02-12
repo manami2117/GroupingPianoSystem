@@ -240,14 +240,14 @@
             globalMemCPSCIDA.groupMode = $('#groupModeSelector option:selected').val();
         });
 
-        groupDisplayModeSelector.change(function(){ //グループごとに表示            
-            globalMemCPSCIDA.groupDisplayMode = $('#groupDisplayModeSelector option:selected').val(); 
-            globalMemCPSCIDA.chunkHeadLinePositions = domRenderer.getSortedChunkHeadLine(globalMemCPSCIDA.chunkDataObj.chunkData);
+        groupDisplayModeSelector.change(function(){ //グループごとに表示  //.change(): セレクターなどから任意の項目を選択したときに何らかのイベント処理を自動的に実行 (https://www.sejuku.net/blog/41231) //Question. これを書いてどうなのかあまり想像つかない     
+            globalMemCPSCIDA.groupDisplayMode = $('#groupDisplayModeSelector option:selected').val(); // all, score, performance, KnowledgeApplicationのいずれかを代入 //.val(): HTML内のvalue属性を取得・変更できる
+            globalMemCPSCIDA.chunkHeadLinePositions = domRenderer.getSortedChunkHeadLine(globalMemCPSCIDA.chunkDataObj.chunkData);//被験者が保存したグループデータを代入
             
-            if(globalMemCPSCIDA.groupDisplayMode === 'all') {
-                $('.chunk').css({'display':'block'});
+            if(globalMemCPSCIDA.groupDisplayMode === 'all') {//全て表示の場合 
+                $('.chunk').css({'display':'block'});//cssの.chunk部分をブロックで表示 (https://www.sejuku.net/blog/52636)
             } else {
-                $('.chunk').css({'display':'none'});
+                $('.chunk').css({'display':'none'});//特定の要素が非表示になる (https://www.clrmemory.com/web/display-visibility-distinguish)
                 $('.chunk.' + globalMemCPSCIDA.groupDisplayMode).css({'display':'block'});
             } 
         });

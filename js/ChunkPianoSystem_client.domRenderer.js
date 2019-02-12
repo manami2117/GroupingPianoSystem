@@ -38,7 +38,7 @@
             
             chunkDomId = String() + chunkPropCCD.groupMode + 'Chunk_' + globalMemCPSDDR.groupCount[chunkPropCCD.groupMode];
             chunkDom = $('<div class="chunk ' + chunkPropCCD.groupMode + '" id="' + chunkDomId + '"></div>');
-            console.log("せやかて: " + '<div class="chunk ' + chunkPropCCD.groupMode + '" id="' + chunkDomId + '"></div>');
+            //console.log("せやかて: " + '<div class="chunk ' + chunkPropCCD.groupMode + '" id="' + chunkDomId + '"></div>');
             
             chunkDom.css({ // jQuery で dom の css を変更するときの書法
                 'top'   : chunkPropCCD.top    + 'px',
@@ -70,7 +70,7 @@
                 mouseupedChunkDomData.chunkHeadLine = getChunkHeadLine(mouseupedChunkDomData);
                 
                 globalMemCPSDDR.chunkHeadLinePositions = getSortedChunkHeadLine(globalMemCPSDDR.chunkDataObj.chunkData);
-                
+
                 globalMemCPSDDR.isChunkDragging = false;
                 console.log(globalMemCPSDDR.chunkDataObj.chunkData);
             });
@@ -174,20 +174,23 @@
         
         var sortedChunkHeadLine = []; 
         
-        for(var chunk_dom_id in chunkData){
+        for(var chunk_dom_id in chunkData){//  // 例）chunk_dom_id: knowledeApplicationChunk_0
             if (globalMemCPSDDR.groupDisplayMode === 'all') {
-                sortedChunkHeadLine.push(parseInt(chunkData[chunk_dom_id].chunkHeadLine, 10));           
+                sortedChunkHeadLine.push(parseInt(chunkData[chunk_dom_id].chunkHeadLine, 10));//chunkHeadLine: おそらくそれぞれのグループの先頭の音符番号だと思われる          
             } else {
                 if (globalMemCPSDDR.groupDisplayMode === chunkData[chunk_dom_id].groupMode) {
                     sortedChunkHeadLine.push(parseInt(chunkData[chunk_dom_id].chunkHeadLine, 10));           
                 }
             }    
         }
-        sortedChunkHeadLine.sort(function(a,b){
+        //console.info("chunk_dom_id: "+ chunk_dom_id);
+        sortedChunkHeadLine.sort(function(a,b){ // 昇順にソート (https://qiita.com/ymk83/items/3d53e0965a278b5cfd4d) 戻り値が正のときaをbの後ろに並べ替え，戻り値が負のときaをbの前に並べ替え
             return a - b;
         });
         return sortedChunkHeadLine;
     };
     
-    return{createChunkDom:createChunkDom, getSortedChunkHeadLine:getSortedChunkHeadLine};
+    return{createChunkDom:createChunkDom, getSortedChunkHeadLine:getSortedChunkHeadLine};//Question. なんとなくわかるけどなぜvalueとkeyが同じなのか…やっぱりわからない…
+    //console.log("createChunkDom: "+ createChunkDom);
+    //console.log("getSortedChunkHeadLine: "+ getSortedChunkHeadLine);
 };
